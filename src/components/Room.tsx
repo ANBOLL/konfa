@@ -64,9 +64,11 @@ export const Room: React.FC<RoomProps> = ({
       stopScreenShare();
       setCurrentUserState(prev => ({ ...prev, isScreenSharing: false }));
     } else {
-      startScreenShare();
-      // Only update state if screen share actually starts
-      // The state will be updated in the startScreenShare callback
+      startScreenShare().then((success) => {
+        if (success) {
+          setCurrentUserState(prev => ({ ...prev, isScreenSharing: true }));
+        }
+      });
     }
   };
 

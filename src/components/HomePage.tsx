@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Video, Users, Settings, ArrowRight, Copy, Check } from 'lucide-react';
-import { generateRoomId, generateRoomUrl, copyToClipboard } from '../utils/roomUtils';
+import { generateRoomId, generateRoomUrl, copyToClipboard, getRoomIdFromUrl } from '../utils/roomUtils';
 
 interface HomePageProps {
   onJoinRoom: (roomId: string, nickname: string, isHost: boolean) => void;
@@ -8,7 +8,7 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
   const [nickname, setNickname] = useState('');
-  const [roomId, setRoomId] = useState('');
+  const [roomId, setRoomId] = useState(getRoomIdFromUrl() || '');
   const [showCreateRoom, setShowCreateRoom] = useState(false);
   const [generatedRoomId, setGeneratedRoomId] = useState('');
   const [copied, setCopied] = useState(false);

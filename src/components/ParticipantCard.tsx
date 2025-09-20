@@ -35,14 +35,14 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
     if (isCurrentUser && videoRef?.current) {
       return videoRef.current.srcObject;
     }
-    return participant.stream;
+    return participant.stream || null;
   };
 
   return (
     <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group">
       {/* Video */}
       <div className="w-full h-full flex items-center justify-center">
-        {participant.isCameraOn ? (
+        {participant.isCameraOn && !participant.isScreenSharing ? (
           isCurrentUser ? (
             <video
               ref={videoRef}
@@ -56,8 +56,25 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
               autoPlay
               playsInline
               className="w-full h-full object-cover"
+              src={participant.stream ? URL.createObjectURL(participant.stream) : undefined}
             />
           )
+        ) : participant.isScreenSharing ? (
+          <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+            <div className="text-center text-white">
+              <Monitor className="w-12 h-12 mx-auto mb-2" />
+              <p className="text-sm font-medium">Демонстрация экрана</p>
+              <p className="text-xs text-gray-300">{participant.nickname}</p>
+            </div>
+            {participant.stream && (
+              <video
+                autoPlay
+                playsInline
+                className="absolute inset-0 w-full h-full object-contain"
+                src={URL.createObjectURL(participant.stream)}
+              />
+            )}
+          </div>
         ) : (
           <div className="flex flex-col items-center justify-center text-white">
             <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mb-3">

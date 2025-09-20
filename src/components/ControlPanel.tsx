@@ -92,7 +92,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
                   ? 'bg-blue-100 hover:bg-blue-200 text-blue-600'
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
               }`}
-              title={isScreenSharing ? 'Прекратить демонстрацию' : 'Демонстрация экрана'}
+              title={isScreenSharing ? 'Прекратить демонстрацию экрана' : 'Начать демонстрацию экрана'}
             >
               {isScreenSharing ? <MonitorX className="w-5 h-5" /> : <Monitor className="w-5 h-5" />}
             </button>
