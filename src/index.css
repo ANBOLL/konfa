@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Импорт стилей компонентов */
+@import './styles/components/home-page.css';
+@import './styles/components/room.css';
+@import './styles/components/video-grid.css';
+@import './styles/components/participant-card.css';
+@import './styles/components/control-panel.css';
+@import './styles/components/chat-panel.css';

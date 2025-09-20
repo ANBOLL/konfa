@@ -1,0 +1,132 @@
+/* Панель управления */
+.b-control-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 30;
+}
+
+.b-control-panel__container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.b-control-panel__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Информация о комнате */
+.b-control-panel__room-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.b-control-panel__participants {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.b-control-panel__participants-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.b-control-panel__room-id {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .b-control-panel__room-id {
+    display: flex;
+  }
+}
+
+.b-control-panel__room-id-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.b-control-panel__room-id-value {
+  font-size: 0.875rem;
+  font-family: monospace;
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Основные кнопки управления */
+.b-control-panel__main-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.b-control-panel__control-button {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.b-control-panel__control-button_default {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.b-control-panel__control-button_default:hover {
+  background-color: #e5e7eb;
+}
+
+.b-control-panel__control-button_danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.b-control-panel__control-button_danger:hover {
+  background-color: #fee2e2;
+}
+
+.b-control-panel__control-button_active {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.b-control-panel__control-button_active:hover {
+  background-color: #bfdbfe;
+}
+
+.b-control-panel__control-button_leave {
+  background-color: #dc2626;
+  color: white;
+}
+
+.b-control-panel__control-button_leave:hover {
+  background-color: #b91c1c;
+}
+
+.b-control-panel__divider {
+  width: 1px;
+  height: 2rem;
+  background-color: #d1d5db;
+  margin: 0 0.5rem;
+}
+
+/* Дополнительные кнопки */
+.b-control-panel__additional-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

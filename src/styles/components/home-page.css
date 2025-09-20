@@ -1,0 +1,295 @@
+/* Главная страница */
+.b-home-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.b-home-page__container {
+  max-width: 28rem;
+  width: 100%;
+}
+
+/* Заголовок страницы */
+.b-home-page__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.b-home-page__logo {
+  width: 5rem;
+  height: 5rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.b-home-page__title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.b-home-page__subtitle {
+  color: #6b7280;
+}
+
+/* Форма */
+.b-home-page__form {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+.b-home-page__input-group {
+  margin-bottom: 1.5rem;
+}
+
+.b-home-page__label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.b-home-page__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.b-home-page__input:focus {
+  ring: 2px;
+  ring-color: #3b82f6;
+  border-color: transparent;
+}
+
+.b-home-page__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.b-home-page__button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.b-home-page__button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.b-home-page__button_primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.b-home-page__button_primary:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.b-home-page__button_success {
+  background-color: #059669;
+  color: white;
+}
+
+.b-home-page__button_success:hover:not(:disabled) {
+  background-color: #047857;
+}
+
+/* Разделитель */
+.b-home-page__divider {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.b-home-page__divider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+.b-home-page__divider::before {
+  width: 100%;
+  border-top: 1px solid #d1d5db;
+}
+
+.b-home-page__divider-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.b-home-page__divider-text span {
+  padding: 0 1rem;
+  background-color: white;
+  color: #6b7280;
+}
+
+/* Возможности */
+.b-home-page__features {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.b-home-page__features-title {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.b-home-page__features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.b-home-page__feature {
+  text-align: center;
+}
+
+.b-home-page__feature-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+}
+
+.b-home-page__feature-text {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Модальное окно создания комнаты */
+.b-room-created {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.b-room-created__container {
+  max-width: 28rem;
+  width: 100%;
+}
+
+.b-room-created__modal {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  text-align: center;
+}
+
+.b-room-created__icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: #dbeafe;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.b-room-created__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.b-room-created__subtitle {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.b-room-created__room-info {
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.b-room-created__room-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.b-room-created__room-id-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.b-room-created__room-id {
+  font-family: monospace;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.b-room-created__copy-button {
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.b-room-created__copy-button:hover {
+  background-color: #e5e7eb;
+}
+
+.b-room-created__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.b-room-created__back-button {
+  width: 100%;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.b-room-created__back-button:hover {
+  color: #374151;
+}

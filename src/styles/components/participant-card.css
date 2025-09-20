@@ -1,0 +1,207 @@
+/* Карточка участника */
+.b-participant-card {
+  position: relative;
+  background-color: #111827;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.b-participant-card__video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-participant-card__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Демонстрация экрана */
+.b-participant-card__screen-share {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-participant-card__screen-share-content {
+  text-align: center;
+  color: white;
+}
+
+.b-participant-card__screen-share-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.5rem;
+}
+
+.b-participant-card__screen-share-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.b-participant-card__screen-share-name {
+  font-size: 0.75rem;
+  color: #d1d5db;
+}
+
+.b-participant-card__screen-share-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Отключенная камера */
+.b-participant-card__no-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.b-participant-card__avatar {
+  width: 4rem;
+  height: 4rem;
+  background-color: #4b5563;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.b-participant-card__avatar-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.b-participant-card__no-video-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Индикаторы */
+.b-participant-card__screen-indicator {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+}
+
+.b-participant-card__screen-badge {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.b-participant-card__host-indicator {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.b-participant-card__host-badge {
+  background-color: #ea580c;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+/* Кнопки управления */
+.b-participant-card__controls {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.b-participant-card:hover .b-participant-card__controls {
+  opacity: 1;
+}
+
+.b-participant-card__controls-list {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.b-participant-card__control-button {
+  background-color: #dc2626;
+  color: white;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.b-participant-card__control-button:hover {
+  background-color: #b91c1c;
+}
+
+/* Информационная панель */
+.b-participant-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 0.75rem;
+}
+
+.b-participant-card__info-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.b-participant-card__name {
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.b-participant-card__status {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.b-participant-card__status-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.b-participant-card__status-icon_muted {
+  color: #f87171;
+}
+
+.b-participant-card__status-icon_unmuted {
+  color: #4ade80;
+}
+
+.b-participant-card__status-icon_video-on {
+  color: #4ade80;
+}
+
+.b-participant-card__status-icon_video-off {
+  color: #f87171;
+}

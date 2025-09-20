@@ -111,19 +111,19 @@ export const Room: React.FC<RoomProps> = ({
 
   if (isConnecting) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mb-4"></div>
-          <p className="text-white text-lg">Подключение к комнате...</p>
+      <div className="b-room__loading">
+        <div className="b-room__loading-content">
+          <div className="b-room__loading-spinner"></div>
+          <p className="b-room__loading-text">Подключение к комнате...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 relative">
+    <div className="b-room">
       {/* Video Grid */}
-      <div className="h-screen pb-20">
+      <div className="b-room__video-container">
         <VideoGrid
           participants={participants}
           currentUserId={currentUserState.id}

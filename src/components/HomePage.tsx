@@ -41,29 +41,29 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
 
   if (showCreateRoom && generatedRoomId) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-        <div className="max-w-md w-full">
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <div className="b-room-created">
+        <div className="b-room-created__container">
+          <div className="b-room-created__modal">
+            <div className="b-room-created__icon">
               <Video className="w-8 h-8 text-blue-600" />
             </div>
             
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="b-room-created__title">
               Комната создана!
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="b-room-created__subtitle">
               Поделитесь ссылкой с участниками
             </p>
             
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <div className="flex items-center justify-between">
-                <div className="text-left">
-                  <p className="text-sm text-gray-500">ID комнаты</p>
-                  <p className="font-mono text-lg font-medium">{generatedRoomId}</p>
+            <div className="b-room-created__room-info">
+              <div className="b-room-created__room-details">
+                <div>
+                  <p className="b-room-created__room-id-label">ID комнаты</p>
+                  <p className="b-room-created__room-id">{generatedRoomId}</p>
                 </div>
                 <button
                   onClick={handleCopyLink}
-                  className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
+                  className="b-room-created__copy-button"
                   title="Копировать ссылку"
                 >
                   {copied ? (
@@ -75,10 +75,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
               </div>
             </div>
             
-            <div className="space-y-3">
+            <div className="b-room-created__actions">
               <button
                 onClick={handleStartRoom}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
+                className="b-home-page__button b-home-page__button_primary"
               >
                 Войти в комнату
                 <ArrowRight className="w-5 h-5" />
@@ -86,7 +86,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
               
               <button
                 onClick={() => setShowCreateRoom(false)}
-                className="w-full text-gray-600 hover:text-gray-800 py-2 transition-colors"
+                className="b-room-created__back-button"
               >
                 Назад
               </button>
@@ -98,23 +98,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-4">
+    <div className="b-home-page">
+      <div className="b-home-page__container">
+        <div className="b-home-page__header">
+          <div className="b-home-page__logo">
             <Video className="w-10 h-10 text-blue-600" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="b-home-page__title">
             Видеоконференции
           </h1>
-          <p className="text-gray-600">
+          <p className="b-home-page__subtitle">
             Общайтесь с коллегами и друзьями в высоком качестве
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+        <div className="b-home-page__form">
+          <div className="b-home-page__input-group">
+            <label className="b-home-page__label">
               Ваше имя
             </label>
             <input
@@ -122,26 +122,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
               placeholder="Введите ваше имя"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="b-home-page__input"
             />
           </div>
 
-          <div className="space-y-4">
+          <div className="b-home-page__actions">
             <button
               onClick={handleCreateRoom}
               disabled={!nickname.trim()}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
+              className="b-home-page__button b-home-page__button_primary"
             >
               <Users className="w-5 h-5" />
               Создать комнату
             </button>
 
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white text-gray-500">или</span>
+            <div className="b-home-page__divider">
+              <div className="b-home-page__divider-text">
+                <span>или</span>
               </div>
             </div>
 
@@ -151,12 +148,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
                 value={roomId}
                 onChange={(e) => setRoomId(e.target.value)}
                 placeholder="ID комнаты"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-3 transition-all"
+                className="b-home-page__input"
               />
               <button
                 onClick={handleJoinRoom}
                 disabled={!nickname.trim() || !roomId.trim()}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
+                className="b-home-page__button b-home-page__button_success"
               >
                 Присоединиться
                 <ArrowRight className="w-5 h-5" />
@@ -165,28 +162,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onJoinRoom }) => {
           </div>
         </div>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500 mb-4">
+        <div className="b-home-page__features">
+          <p className="b-home-page__features-title">
             Возможности платформы
           </p>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center mx-auto mb-2">
+          <div className="b-home-page__features-grid">
+            <div className="b-home-page__feature">
+              <div className="b-home-page__feature-icon">
                 <Video className="w-6 h-6 text-blue-600" />
               </div>
-              <p className="text-xs text-gray-600">HD видео</p>
+              <p className="b-home-page__feature-text">HD видео</p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center mx-auto mb-2">
+            <div className="b-home-page__feature">
+              <div className="b-home-page__feature-icon">
                 <Users className="w-6 h-6 text-emerald-600" />
               </div>
-              <p className="text-xs text-gray-600">До 100 человек</p>
+              <p className="b-home-page__feature-text">До 100 человек</p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center mx-auto mb-2">
+            <div className="b-home-page__feature">
+              <div className="b-home-page__feature-icon">
                 <Settings className="w-6 h-6 text-orange-600" />
               </div>
-              <p className="text-xs text-gray-600">Управление</p>
+              <p className="b-home-page__feature-text">Управление</p>
             </div>
           </div>
         </div>

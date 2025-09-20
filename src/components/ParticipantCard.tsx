@@ -39,9 +39,9 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
   };
 
   return (
-    <div className="relative bg-gray-900 rounded-xl overflow-hidden aspect-video group">
+    <div className="b-participant-card">
       {/* Video */}
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="b-participant-card__video-container">
         {participant.isCameraOn && !participant.isScreenSharing ? (
           isCurrentUser ? (
             <video
@@ -49,48 +49,48 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
               autoPlay
               muted
               playsInline
-              className="w-full h-full object-cover"
+              className="b-participant-card__video"
             />
           ) : (
             <video
               autoPlay
               playsInline
-              className="w-full h-full object-cover"
+              className="b-participant-card__video"
               src={participant.stream ? URL.createObjectURL(participant.stream) : undefined}
             />
           )
         ) : participant.isScreenSharing ? (
-          <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-            <div className="text-center text-white">
-              <Monitor className="w-12 h-12 mx-auto mb-2" />
-              <p className="text-sm font-medium">Демонстрация экрана</p>
-              <p className="text-xs text-gray-300">{participant.nickname}</p>
+          <div className="b-participant-card__screen-share">
+            <div className="b-participant-card__screen-share-content">
+              <Monitor className="b-participant-card__screen-share-icon" />
+              <p className="b-participant-card__screen-share-title">Демонстрация экрана</p>
+              <p className="b-participant-card__screen-share-name">{participant.nickname}</p>
             </div>
             {participant.stream && (
               <video
                 autoPlay
                 playsInline
-                className="absolute inset-0 w-full h-full object-contain"
+                className="b-participant-card__screen-share-video"
                 src={URL.createObjectURL(participant.stream)}
               />
             )}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center text-white">
-            <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mb-3">
-              <span className="text-xl font-semibold">
+          <div className="b-participant-card__no-video">
+            <div className="b-participant-card__avatar">
+              <span className="b-participant-card__avatar-text">
                 {participant.nickname.charAt(0).toUpperCase()}
               </span>
             </div>
-            <p className="text-sm font-medium">Камера отключена</p>
+            <p className="b-participant-card__no-video-text">Камера отключена</p>
           </div>
         )}
       </div>
 
       {/* Screen sharing indicator */}
       {participant.isScreenSharing && (
-        <div className="absolute top-3 left-3">
-          <div className="bg-blue-600 text-white px-2 py-1 rounded-lg text-xs font-medium flex items-center gap-1">
+        <div className="b-participant-card__screen-indicator">
+          <div className="b-participant-card__screen-badge">
             <Monitor className="w-3 h-3" />
             Экран
           </div>
@@ -99,8 +99,8 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
 
       {/* Host indicator */}
       {participant.isHost && (
-        <div className="absolute top-3 right-3">
-          <div className="bg-orange-600 text-white p-1 rounded-lg">
+        <div className="b-participant-card__host-indicator">
+          <div className="b-participant-card__host-badge">
             <Crown className="w-4 h-4" />
           </div>
         </div>
@@ -108,18 +108,18 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
 
       {/* Control buttons for host */}
       {canControl && !isCurrentUser && (
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="flex gap-1">
+        <div className="b-participant-card__controls">
+          <div className="b-participant-card__controls-list">
             <button
               onClick={handleMuteToggle}
-              className="bg-red-600 hover:bg-red-700 text-white p-1 rounded-lg transition-colors"
+              className="b-participant-card__control-button"
               title={participant.isMuted ? "Включить микрофон" : "Отключить микрофон"}
             >
               <VolumeX className="w-4 h-4" />
             </button>
             <button
               onClick={handleKick}
-              className="bg-red-600 hover:bg-red-700 text-white p-1 rounded-lg transition-colors"
+              className="b-participant-card__control-button"
               title="Исключить участника"
             >
               <UserX className="w-4 h-4" />
@@ -129,26 +129,26 @@ export const ParticipantCard: React.FC<ParticipantCardProps> = ({
       )}
 
       {/* Bottom info bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-white font-medium text-sm truncate">
+      <div className="b-participant-card__info">
+        <div className="b-participant-card__info-content">
+          <div>
+            <span className="b-participant-card__name">
               {participant.nickname}
               {isCurrentUser && ' (Вы)'}
             </span>
           </div>
           
-          <div className="flex items-center gap-1">
+          <div className="b-participant-card__status">
             {participant.isMuted ? (
-              <MicOff className="w-4 h-4 text-red-400" />
+              <MicOff className="b-participant-card__status-icon b-participant-card__status-icon_muted" />
             ) : (
-              <Mic className="w-4 h-4 text-green-400" />
+              <Mic className="b-participant-card__status-icon b-participant-card__status-icon_unmuted" />
             )}
             
             {participant.isCameraOn ? (
-              <Video className="w-4 h-4 text-green-400" />
+              <Video className="b-participant-card__status-icon b-participant-card__status-icon_video-on" />
             ) : (
-              <VideoOff className="w-4 h-4 text-red-400" />
+              <VideoOff className="b-participant-card__status-icon b-participant-card__status-icon_video-off" />
             )}
           </div>
         </div>

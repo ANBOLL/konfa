@@ -38,35 +38,35 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
   onCopyRoomLink
 }) => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-30">
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+    <div className="b-control-panel">
+      <div className="b-control-panel__container">
+        <div className="b-control-panel__content">
           
           {/* Left: Room Info */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+          <div className="b-control-panel__room-info">
+            <div className="b-control-panel__participants">
               <Users className="w-5 h-5 text-gray-600" />
-              <span className="text-sm font-medium text-gray-900">
+              <span className="b-control-panel__participants-text">
                 {participantCount} участник{participantCount !== 1 ? (participantCount < 5 ? 'а' : 'ов') : ''}
               </span>
             </div>
             
-            <div className="hidden md:flex items-center gap-2">
-              <span className="text-sm text-gray-500">ID:</span>
-              <code className="text-sm font-mono bg-gray-100 px-2 py-1 rounded">
+            <div className="b-control-panel__room-id">
+              <span className="b-control-panel__room-id-label">ID:</span>
+              <code className="b-control-panel__room-id-value">
                 {roomId}
               </code>
             </div>
           </div>
 
           {/* Center: Main Controls */}
-          <div className="flex items-center gap-2">
+          <div className="b-control-panel__main-controls">
             <button
               onClick={onToggleMute}
-              className={`p-3 rounded-xl transition-colors ${
+              className={`b-control-panel__control-button ${
                 isMuted
-                  ? 'bg-red-100 hover:bg-red-200 text-red-600'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  ? 'b-control-panel__control-button_danger'
+                  : 'b-control-panel__control-button_default'
               }`}
               title={isMuted ? 'Включить микрофон' : 'Отключить микрофон'}
             >
@@ -75,10 +75,10 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 
             <button
               onClick={onToggleCamera}
-              className={`p-3 rounded-xl transition-colors ${
+              className={`b-control-panel__control-button ${
                 !isCameraOn
-                  ? 'bg-red-100 hover:bg-red-200 text-red-600'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  ? 'b-control-panel__control-button_danger'
+                  : 'b-control-panel__control-button_default'
               }`}
               title={isCameraOn ? 'Отключить камеру' : 'Включить камеру'}
             >
@@ -87,21 +87,21 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 
             <button
               onClick={onToggleScreenShare}
-              className={`p-3 rounded-xl transition-colors ${
+              className={`b-control-panel__control-button ${
                 isScreenSharing
-                  ? 'bg-blue-100 hover:bg-blue-200 text-blue-600'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  ? 'b-control-panel__control-button_active'
+                  : 'b-control-panel__control-button_default'
               }`}
               title={isScreenSharing ? 'Прекратить демонстрацию экрана' : 'Начать демонстрацию экрана'}
             >
               {isScreenSharing ? <MonitorX className="w-5 h-5" /> : <Monitor className="w-5 h-5" />}
             </button>
 
-            <div className="w-px h-8 bg-gray-300 mx-2" />
+            <div className="b-control-panel__divider" />
 
             <button
               onClick={onLeaveRoom}
-              className="bg-red-600 hover:bg-red-700 text-white p-3 rounded-xl transition-colors"
+              className="b-control-panel__control-button b-control-panel__control-button_leave"
               title="Завершить звонок"
             >
               <Phone className="w-5 h-5" />
@@ -109,17 +109,17 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
           </div>
 
           {/* Right: Additional Controls */}
-          <div className="flex items-center gap-2">
+          <div className="b-control-panel__additional-controls">
             <button
               onClick={onCopyRoomLink}
-              className="p-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+              className="b-control-panel__control-button b-control-panel__control-button_default"
               title="Копировать ссылку на комнату"
             >
               <Copy className="w-5 h-5" />
             </button>
 
             <button
-              className="p-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+              className="b-control-panel__control-button b-control-panel__control-button_default"
               title="Настройки"
             >
               <Settings className="w-5 h-5" />

@@ -20,12 +20,12 @@ export const VideoGrid: React.FC<VideoGridProps> = ({
   localVideoRef
 }) => {
   const getGridClass = (count: number) => {
-    if (count === 1) return 'grid-cols-1';
-    if (count === 2) return 'grid-cols-1 md:grid-cols-2';
-    if (count <= 4) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2';
-    if (count <= 6) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
-    if (count <= 9) return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
-    return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+    if (count === 1) return 'b-video-grid_cols-1';
+    if (count === 2) return 'b-video-grid_cols-2';
+    if (count <= 4) return 'b-video-grid_cols-2';
+    if (count <= 6) return 'b-video-grid_cols-3';
+    if (count <= 9) return 'b-video-grid_cols-3';
+    return 'b-video-grid_cols-4';
   };
 
   // Sort participants to show current user first
@@ -38,7 +38,7 @@ export const VideoGrid: React.FC<VideoGridProps> = ({
   });
 
   return (
-    <div className={`grid ${getGridClass(participants.length)} gap-4 h-full p-4 auto-rows-fr`}>
+    <div className={`b-video-grid ${getGridClass(participants.length)}`}>
       {sortedParticipants.map((participant) => (
         <ParticipantCard
           key={participant.id}
